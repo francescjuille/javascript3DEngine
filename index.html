@@ -8,17 +8,19 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="main.js"></script>
+        <script src="js/Screen.js"></script>
+        <script src="js/RenderCanvas.js"></script>
     </head>
     <body>
-        <script src="main.js"></script>
-        <script src="Screen.js"></script>
-        <script src="RenderCanvas.js"></script>
+        
 
         <div class="web-container">
 
             <div class="web-engine-container">
                 <div class="engine">
-                    <canvas id="gameEngine"></canvas>
+                    <canvas id="gameEngine" width="600" height="600"></canvas>
                 </div>
             </div>
 
@@ -35,8 +37,8 @@
             }
 
             .engine{
-                width:500px;
-                height:500px;
+                width:700px;
+                height:700px;
                 border: solid 1px gray;
             }
 

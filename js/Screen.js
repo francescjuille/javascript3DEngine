@@ -12,6 +12,18 @@ class Screen {
     }
     ]
 
+    moveCamera(){
+
+    }
+
+    rotateCamera(){
+
+    }
+
+    renderScreen(){
+        
+    }
+
 
 
 }
