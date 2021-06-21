@@ -8,21 +8,38 @@ class MathFunctions{
 
         let R=camera.rotation.x
         let resultFunction={}
+        let typeOfFunction=""
         if(R>=0 && R<=90){
             resultFunction=this.getFunctionVertex90Degrees(vertex,camera)
-
+            typeOfFunction="F(x)"
         } else if(R>=90 && R<=180){
             resultFunction=this.getFunctionVertex180Degrees(vertex,camera)
+            typeOfFunction="F(y)"
 
         } else if(R>=180 && R<=270){
             resultFunction=this.getFunctionVertex270Degrees(vertex,camera)
+            typeOfFunction="F(y)"
 
         } else if(R>=270 && R<=360){
             resultFunction=this.getFunctionVertex360Degrees(vertex,camera)
+            typeOfFunction="F(x)"
+        }
+
+        A=0
+        B=0
+        if(typeOfFunction="F(x)"){
+            A=(vertex.y-resultFunction.y) / (vertex.x-resultFunction.x)
+            B=resultFunction.y
+        }
+
+        if(typeOfFunction="F(y)"){
+            A=(vertex.x-resultFunction.x) / (vertex.y-resultFunction.y)
+            B=resultFunction.x
         }
 
         let Fy = this.getFuntionOf2Points(vertex, camera.position)
 
+        return {typeOfFunction:typeOfFunction,function:{A:A,B:B}}   //function: f(i)= Ai + B
     }
 
 
