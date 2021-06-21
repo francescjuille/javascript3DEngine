@@ -22,10 +22,13 @@ class Screen {
 
     }
 
-    renderScreen(){
+    getVertex2DFinalPosition(){
         math=new MathFunctions()
         math.checkObjects(this.offsetAngle,this.camera,this.objects)
+    }
 
+    getVertexBodyConnections(){
+        
     }
 
 

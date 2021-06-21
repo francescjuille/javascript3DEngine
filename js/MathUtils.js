@@ -1,6 +1,6 @@
 
 
-class MathFunctions{
+class MathUtils{
 
 
     offsetAngle=0
@@ -30,7 +30,7 @@ class MathFunctions{
 
     getVertexLateralMargin(vertex,camera){
         //numero of X that increments for each Y
-        let Fy = getFuntionOf2Points(vertex, camera.position)
+        let Fy = this.getFuntionOf2Points(vertex, camera.position)
 
 
     }
