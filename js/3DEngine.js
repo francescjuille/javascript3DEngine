@@ -15,20 +15,21 @@ class Screen {
     ]
 
     moveCamera(){
-
+        //TODO
     }
 
     rotateCamera(){
-
+        //TODO
     }
 
-    getVertex2DFinalPosition(){
-        math=new MathFunctions()
-        math.checkObjects(this.offsetAngle,this.camera,this.objects)
+    getUpdatedObjectVertexPositions(){
+        let vectorUtils = new VectorUtils()
+        let margin=vectorUtils.getVertexLateralMarginFromCameraHorizontal(this.objects.vertex[3],this.camera)
+        console.log("margin: "+margin)
     }
 
     getVertexBodyConnections(){
-        
+        // TODO
     }
 
 

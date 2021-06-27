@@ -1,10 +1,10 @@
 
 
-class MathFunctions{
+class VectorObjectsHandler{
 
     mathUtils = new MathUtils();
 
-    getVertexLateralMarginFromCamera(vertex,camera){
+    getFunction(vertex,camera){
 
         let R=camera.rotation.x
         let resultFunction={}

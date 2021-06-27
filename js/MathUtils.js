@@ -26,16 +26,6 @@ class MathUtils{
     }
 
 
-
-
-    getVertexLateralMargin(vertex,camera){
-        //numero of X that increments for each Y
-        let Fy = this.getFuntionOf2Points(vertex, camera.position)
-
-
-    }
-
-
     getFuntionOf2Points(pfinal,pinitial){
         let X=pfinal.x - pinitial.x
         let Y=pfinal.y - pinitial.y
