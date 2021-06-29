@@ -25,19 +25,20 @@ class VectorObjectsHandler{
             typeOfFunction="F(x)"
         }
 
-        A=0
-        B=0
-        if(typeOfFunction="F(x)"){
+
+        let A=0
+        let B=0
+        if(typeOfFunction=="F(x)"){
             A=(vertex.y-resultFunction.y) / (vertex.x-resultFunction.x)
             B=resultFunction.y
         }
 
-        if(typeOfFunction="F(y)"){
+        if(typeOfFunction=="F(y)"){
             A=(vertex.x-resultFunction.x) / (vertex.y-resultFunction.y)
             B=resultFunction.x
         }
 
-        let Fy = this.getFuntionOf2Points(vertex, camera.position)
+        //let Fy = this.getFuntionOf2Points(vertex, camera.position)
 
         return {typeOfFunction:typeOfFunction,function:{A:A,B:B}}   //function: f(i)= Ai + B
     }
@@ -48,10 +49,10 @@ class VectorObjectsHandler{
     * Returns a F(x)
     */
     getFunctionVertex90Degrees(vertex,camera){
-        angle=camera.rotation.x
-        A=vertex.x
-        P0x=0
-        P0y=(vertex.y-this.mathUtils.tan(angle)*A)
+        let angle=camera.rotation.x
+        let A=vertex.x
+        let P0x=0
+        let P0y=(vertex.y-this.mathUtils.tan(angle)*A)
         return {x:P0x,y:P0y}
     }
 
@@ -60,10 +61,10 @@ class VectorObjectsHandler{
     * Returns a F(y)
     */
     getFunctionVertex180Degrees(vertex,camera){
-        angle=90-camera.rotation.x
-        A=vertex.y
-        P0x=(vertex.x+this.mathUtils.tan(angle)*A)
-        P0y=0
+        let angle=90-camera.rotation.x
+        let A=vertex.y
+        let P0x=(vertex.x+this.mathUtils.tan(angle)*A)
+        let P0y=0
         return {x:P0x,y:P0y}
     }
 
@@ -72,10 +73,10 @@ class VectorObjectsHandler{
     * Returns a F(y)
     */
      getFunctionVertex270Degrees(vertex,camera){
-        angle=90-camera.rotation.x
-        A=vertex.y
-        P0x=(vertex.x-this.mathUtils.tan(angle)*A)
-        P0y=0
+        let angle=90-camera.rotation.x
+        let A=vertex.y
+        let P0x=(vertex.x-this.mathUtils.tan(angle)*A)
+        let P0y=0
         return {x:P0x,y:P0y}
     }
 
@@ -84,10 +85,10 @@ class VectorObjectsHandler{
     * Returns a F(x)
     */
     getFunctionVertex360Degrees(vertex,camera){
-        angle=camera.rotation.x
-        A=vertex.x
-        P0x=0
-        P0y=(vertex.y-this.mathUtils.tan(angle)*A)
+        let angle=camera.rotation.x
+        let A=vertex.x
+        let P0x=0
+        let P0y=(vertex.y-this.mathUtils.tan(angle)*A)
         return {x:P0x,y:P0y}
     }
 

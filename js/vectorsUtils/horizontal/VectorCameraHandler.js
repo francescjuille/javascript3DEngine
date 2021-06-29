@@ -9,8 +9,12 @@ class VectorCameraHandler{
         let resultFunction={}
         let typeOfFunction=""
         if(R>=0 && R<=90){
+            console.log("_________________")
+            console.log("\nCAMERA FIRST QUARTER")
             resultFunction=this.getFunctionVertex90Degrees(vertex,camera)
             typeOfFunction="F(x)"
+            console.log("resultFunction: "+JSON.stringify(resultFunction))
+            console.log("__________\n")
         } else if(R>=90 && R<=180){
             resultFunction=this.getFunctionVertex180Degrees(vertex,camera)
             typeOfFunction="F(y)"
@@ -23,89 +27,90 @@ class VectorCameraHandler{
             resultFunction=this.getFunctionVertex360Degrees(vertex,camera)
             typeOfFunction="F(x)"
         }
-
-        A=0
-        B=0
-        if(typeOfFunction="F(x)"){
+        console.log("resultFunction: "+JSON.stringify(resultFunction))
+        let A=0
+        let B=0
+        if(typeOfFunction=="F(x)"){
             A=(vertex.y-resultFunction.y) / (vertex.x-resultFunction.x)
             B=resultFunction.y
         }
 
-        if(typeOfFunction="F(y)"){
+        if(typeOfFunction=="F(y)"){
             A=(vertex.x-resultFunction.x) / (vertex.y-resultFunction.y)
             B=resultFunction.x
         }
-
-        let Fy = this.getFuntionOf2Points(vertex, camera.position)
+        console.log("A: "+JSON.stringify(A))
+        console.log("B: "+JSON.stringify(B))
+        //let Fy = this.getFuntionOf2Points(vertex, camera.position)
 
         return {typeOfFunction:typeOfFunction,function:{A:A,B:B}}   //function: f(i)= Ai + B
     }
 
 
     getFunctionVertex90Degrees(vertex,camera){
-        angle=90-(camera.rotation.x+(75)) //1r part
-        signe=1
+        let angle=90-(camera.rotation.x+(75)) //1r part
+        let signe=1
         if(angle<=0){
             angle+=90
             angle=90-angle
             signe=-1
         }
         
-        A=vertex.x
-        P0x=0
-        P0y=(vertex.y+ (signe*this.mathUtils.tan(angle)*A) )
+        let A=vertex.x
+        let P0x=0
+        let P0y=(vertex.y+ (signe*this.mathUtils.tan(angle)*A) )
         return {x:P0x,y:P0y}
     }
 
     getFunctionVertex180Degrees(vertex,camera){
-        angle=180-(camera.rotation.x+(75)) //1r part
-        signe=-1
+        let angle=180-(camera.rotation.x+(75)) //1r part
+        let signe=-1
         if(angle<=0){
             angle+=90
             angle=90-angle
             signe=1
         }
         
-        A=vertex.y
-        P0x=(vertex.x+ (signe*this.mathUtils.tan(angle)*A) )
-        P0y=0
+        let A=vertex.y
+        let P0x=(vertex.x+ (signe*this.mathUtils.tan(angle)*A) )
+        let P0y=0
         return {x:P0x,y:P0y}
     }
 
     getFunctionVertex270Degrees(vertex,camera){
-        angle=(camera.rotation.x-75)-90 //1r part
-        signe=-1
+        let angle=(camera.rotation.x-75)-90 //1r part
+        let signe=-1
         if(angle>=90){
             angle-=90
             angle=90-angle
             signe=1
         }
         
-        A=vertex.y
-        P0x=(vertex.x + (signe*this.mathUtils.tan(angle)*A) )
-        P0y=0
+        let A=vertex.y
+        let P0x=(vertex.x + (signe*this.mathUtils.tan(angle)*A) )
+        let P0y=0
         return {x:P0x,y:P0y}
     }
 
     getFunctionVertex360Degrees(vertex,camera){
-        angle=(camera.rotation.x-(75))-270 //2n part
-        signe=-1
+        let angle=(camera.rotation.x-(75))-270 //2n part
+        let signe=-1
         if(angle<=0){ 
             angle+=90
             angle=90-angle
             signe=1
         }
         
-        CONSTANT_X=10 //this value can be any number
-        A=vertex.x+CONSTANT_X
-        P0x=vertex.x
-        P0y=(vertex.y+ (signe*this.mathUtils.tan(angle)*A) )
+        let CONSTANT_X=10 //this value can be any number
+        let A=vertex.x+CONSTANT_X
+        let P0x=vertex.x
+        let P0y=(vertex.y+ (signe*this.mathUtils.tan(angle)*A) )
 
         //calculate function slope
-        M=-signe*P0y/CONSTANT_X
+        let M=-signe*P0y/CONSTANT_X
         //calculate reverse point
-        PreverseX=0;
-        PreverseY=vertex.y+(M*vertex.x)
+        let PreverseX=0;
+        let PreverseY=vertex.y+(M*vertex.x)
 
         return {x:PreverseX,y:PreverseY}
     }
