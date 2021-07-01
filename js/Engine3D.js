@@ -1,6 +1,7 @@
 class Engine3D {
 
     offsetAngle=15
+    mathUtils= new MathUtils()
 
     camera={
         position:{x:100,y:100,z:100},
@@ -27,7 +28,13 @@ class Engine3D {
         this.camera.rotation.y+=angleY
         console.log("\nAngle: "+this.camera.rotation.x+"\n______")
         let vectorUtils = new VectorUtils()
-        let margins=vectorUtils.getVertexLateralMarginFromCameraHorizontal(this.objects[0]["vertex"][2],this.camera)
+
+        let vertex=this.mathUtils.sortVertex(this.objects[0]["vertex"])
+        let margins=[]
+        for(let i=0;i<vertex.length;i++){
+            let margin=vectorUtils.getVertexLateralMarginFromCameraHorizontal(vertex[i],this.camera)
+            margins.push(margin)
+        }
     
         return margins
     }

@@ -18,6 +18,16 @@ class RenderCanvas{
         console.log("\nUPDATE CANVAS")
         console.log(vectors)
         console.log("______________\n")
+        let canvasWidth=600
+ 
+        for (let i=0;i<vectors.length;i++){
+            let vectorWidth=vectors[i].distanceLeft + vectors[i].distanceRight
+        
+            let metrics=canvasWidth/vectorWidth
+    
+            this.canvas.fillRect(vectors[i].distanceLeft*metrics,300,7,7);
+        }
+        
         /*
         this.canvas.beginPath();
         this.canvas.moveTo(50, 50);
@@ -34,7 +44,7 @@ class RenderCanvas{
         //this.canvas.strokeStyle = "red";
         //this.canvas.stroke();
 
-        this.canvas.fillRect(100,100,7,7);
+        
     }
 
 

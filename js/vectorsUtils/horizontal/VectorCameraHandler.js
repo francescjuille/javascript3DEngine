@@ -9,8 +9,6 @@ class VectorCameraHandler{
         let resultFunction={}
         let typeOfFunction=""
         if(R>=0 && R<=90){
-            console.log("_________________")
-            console.log("\nCAMERA FIRST QUARTER")
             typeOfFunction="F(x)"
             resultFunction=this.getFunctionVertex90Degrees(vertex,camera)
         } else if(R>=90 && R<=180){
@@ -25,7 +23,7 @@ class VectorCameraHandler{
             resultFunction=this.getFunctionVertex360Degrees(vertex,camera)
             typeOfFunction="F(x)"
         }
-        console.log("resultFunction: "+JSON.stringify(resultFunction))
+        //console.log("resultFunction: "+JSON.stringify(resultFunction))
         let A=0
         let B=0
         if(typeOfFunction=="F(x)"){
@@ -37,8 +35,8 @@ class VectorCameraHandler{
             A=(vertex.x-resultFunction.x) / (vertex.y-resultFunction.y)
             B=resultFunction.x
         }
-        console.log("A: "+JSON.stringify(A))
-        console.log("B: "+JSON.stringify(B))
+        //console.log("A: "+JSON.stringify(A))
+        //console.log("B: "+JSON.stringify(B))
         //let Fy = this.getFuntionOf2Points(vertex, camera.position)
 
         return {typeOfFunction:typeOfFunction,function:{A:A,B:B}}   //function: f(i)= Ai + B
