@@ -11,10 +11,8 @@ class VectorCameraHandler{
         if(R>=0 && R<=90){
             console.log("_________________")
             console.log("\nCAMERA FIRST QUARTER")
-            resultFunction=this.getFunctionVertex90Degrees(vertex,camera)
             typeOfFunction="F(x)"
-            console.log("resultFunction: "+JSON.stringify(resultFunction))
-            console.log("__________\n")
+            resultFunction=this.getFunctionVertex90Degrees(vertex,camera)
         } else if(R>=90 && R<=180){
             resultFunction=this.getFunctionVertex180Degrees(vertex,camera)
             typeOfFunction="F(y)"

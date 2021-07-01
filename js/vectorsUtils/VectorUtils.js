@@ -22,11 +22,13 @@ class VectorUtils{
             Py=(cameraFunction.function.B-objectFunction.function.B) / (objectFunction.function.A-cameraFunction.function.A)
             Px=objectFunction.function.A*Py+objectFunction.function.B
         }
-        else throw "Error";
+        else throw "Error in getVertexLateralMarginFromCameraHorizontal";
+        /*
         console.log("Px: "+Px)
         console.log("Py: "+Py)
         console.log("vertex.x "+(vertex.x))
         console.log("Px "+(Px))
+        */
 
 
         return this.calculateMargins(camera,Px,Py,vertex)
@@ -36,7 +38,6 @@ class VectorUtils{
 
     calculateMargins(camera,Px,Py,vertex){
 
-        console.log("((Px-vertex.x)**2) + ((Py-vertex.y)**2): "+((Px-vertex.x)**2) + ((Py-vertex.y)**2))
         let distance = Math.sqrt( ((Px-vertex.x)**2) + ((Py-vertex.y)**2) )
 
         let distanceLeft=0

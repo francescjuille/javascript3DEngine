@@ -3,8 +3,8 @@ class Engine3D {
     offsetAngle=15
 
     camera={
-        position:{x:140,y:140,z:100},
-        rotation:{x:170,y:0},
+        position:{x:100,y:100,z:100},
+        rotation:{x:0,y:0},
     }
 
     objects=[
@@ -22,12 +22,14 @@ class Engine3D {
         //TODO
     }
 
-    getUpdatedObjectVertexPositions(){
+    updateObjectVertexPositions(angleX,angleY){
+        this.camera.rotation.x+=angleX
+        this.camera.rotation.y+=angleY
+        console.log("\nAngle: "+this.camera.rotation.x+"\n______")
         let vectorUtils = new VectorUtils()
-        let margin=vectorUtils.getVertexLateralMarginFromCameraHorizontal(this.objects[0]["vertex"][2],this.camera)
-        console.log("\n\nMARGIN:")
-        console.log(margin)
-        console.log("_____________\n")
+        let margins=vectorUtils.getVertexLateralMarginFromCameraHorizontal(this.objects[0]["vertex"][2],this.camera)
+    
+        return margins
     }
 
     getVertexBodyConnections(){

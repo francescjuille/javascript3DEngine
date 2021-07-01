@@ -13,8 +13,11 @@ class RenderCanvas{
         this.canvas.stroke();
     }
 
-    updateCanvas(){ //(100,200) el primer es X (width), el segon es y (height)
+    updateCanvas(vectors){ //(100,200) el primer es X (width), el segon es y (height)
         this.canvas.clearRect(0, 0, this.canvasHtmlReference.width, this.canvasHtmlReference.height);
+        console.log("\nUPDATE CANVAS")
+        console.log(vectors)
+        console.log("______________\n")
         /*
         this.canvas.beginPath();
         this.canvas.moveTo(50, 50);
