@@ -3,16 +3,12 @@ class VectorUtils{
 
     vectorObjectsHandler = new VectorObjectsHandler()
     vectorCameraHandler = new VectorCameraHandler()
+    mathUtils= new MathUtils()
 
     getVertexLateralMarginFromCameraHorizontal(vertex,camera){
         let Px,Py
         let cameraFunction = this.vectorCameraHandler.getFunction(camera.position,camera)
         let objectFunction = this.vectorObjectsHandler.getFunction(vertex,camera)
-
-        console.log("\n\n\n_________________________")
-        console.log("MAIN VECTOR FUNCTION START")
-        console.log("cameraFunction: "+JSON.stringify(cameraFunction))
-        console.log("objectFunction: "+JSON.stringify(objectFunction))
 
         //compare functions
         if(objectFunction.typeOfFunction != cameraFunction.typeOfFunction)throw "Error";
@@ -32,16 +28,31 @@ class VectorUtils{
         console.log("vertex.x "+(vertex.x))
         console.log("Px "+(Px))
 
+
+        return this.calculateMargins(camera,Px,Py,vertex)
+
+
+    }
+
+    calculateMargins(camera,Px,Py,vertex){
+
         console.log("((Px-vertex.x)**2) + ((Py-vertex.y)**2): "+((Px-vertex.x)**2) + ((Py-vertex.y)**2))
         let distance = Math.sqrt( ((Px-vertex.x)**2) + ((Py-vertex.y)**2) )
-        console.log("distance: "+distance)
-        return distance
 
+        let distanceLeft=0
+        let distanceRight=0
 
-        
+        let cameraFutionDistance=Math.sqrt( ((Px-camera.position.x)**2) + ((Py-camera.position.y)**2) )
+        let totalDistanceBetweenCameraRange=(this.mathUtils.cos(15)*cameraFutionDistance)*2
+        if(camera.rotation.x>=0 && camera.rotation.x<=180){
+            distanceLeft=distance
+            distanceRight=totalDistanceBetweenCameraRange-distance
+        } else if(camera.rotation.x>=180 && camera.rotation.x<=360){
+            distanceRight=distance
+            distanceLeft=totalDistanceBetweenCameraRange-distance
 
-        
-
+        }
+        return {distanceLeft:distanceLeft,distanceRight:distanceRight}
 
     }
 

@@ -61,6 +61,10 @@ class MathUtils{
         return Math.tan(angle * Math.PI / 180)
     }
 
+    cos(angle){
+        return Math.cos(angle * Math.PI / 180)
+    }
+
 
     
 }
