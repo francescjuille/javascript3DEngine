@@ -21,11 +21,14 @@ class RenderCanvas{
         let canvasWidth=600
 
         for (let i=0;i<vectors.length;i++){
-            let vectorWidth=vectors[i].distanceLeft + vectors[i].distanceRight
+            let vectorWidth=vectors[i].horizontal.distanceLeft + vectors[i].horizontal.distanceRight
         
             let metrics=canvasWidth/vectorWidth
-    
-            this.canvas.fillRect(vectors[i].distanceLeft*metrics,300,7,7);
+            let x=vectors[i].horizontal.distanceLeft*metrics
+            let y=vectors[i].vertical.distanceTop
+            this.canvas.fillRect(x,y,7,7);
+            this.canvas.font = "12px Arial";
+            this.canvas.fillText(vectors[i].vertexName, x, y-1); 
         }
         
         /*

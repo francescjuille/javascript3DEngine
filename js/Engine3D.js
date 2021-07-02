@@ -10,7 +10,7 @@ class Engine3D {
 
     objects=[
         {
-            vertex:[{name:"A",x:110,y:110,z:110},{name:"B",x:120,y:110,z:110},{name:"C",x:120,y:120,z:110},{name:"D",x:120,y:120,z:120},{name:"E",x:110,y:120,z:120},{name:"F",x:110,y:110,z:120},{name:"G",x:110,y:120,z:110},{name:"H",x:120,y:110,z:120}],
+            vertex:[{name:"A",x:110,y:110,z:140},{name:"B",x:120,y:110,z:140},{name:"C",x:120,y:120,z:140},{name:"D",x:120,y:120,z:170},{name:"E",x:110,y:120,z:170},{name:"F",x:110,y:110,z:170},{name:"G",x:110,y:120,z:140},{name:"H",x:120,y:110,z:170}],
             vertexUnion:["AB","AG","AF","BA","BC","BH","CB","CG","CD","DC","DH","DE","ED","EF","EG","FE","FA","FH","GA","GE","GC","HD","HB","HF"]
         },
 
@@ -46,11 +46,11 @@ class Engine3D {
 
         let vectorUtils = new VectorUtils()
 
-        let vertex=this.mathUtils.sortVertex(this.objects[1]["vertex"])
+        let vertex=this.mathUtils.sortVertex(this.objects[0]["vertex"])
         let margins=[]
         for(let i=0;i<vertex.length;i++){
             let margin=vectorUtils.getVertexLateralMarginFromCameraHorizontal(vertex[i],this.camera)
-            margins.push(margin)
+            margins.push({horizontal:margin,vertical:{distanceTop:400-vertex[i].z,distanceBottom:600-(400-vertex[i].z)},vertexName:vertex[i].name})
         }
     
         return margins

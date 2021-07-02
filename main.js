@@ -46,7 +46,7 @@ $(document).ready(()=>{
 
         }
         vectors=ENGINE.updateObjectVertexPositions(angleX,angleY,posX,posY)
-              canvas.updateCanvas(vectors)
+        canvas.updateCanvas(vectors)
 
      };
 
