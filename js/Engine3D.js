@@ -4,7 +4,7 @@ class Engine3D {
     mathUtils= new MathUtils()
 
     camera={
-        position:{x:160,y:100,z:100},
+        position:{x:100,y:100,z:100},
         rotation:{x:0,y:0},
     }
 
@@ -20,8 +20,10 @@ class Engine3D {
         },
     ]
 
-    moveCamera(){
-        //TODO
+    moveCamera(posX,posY){
+        this.camera.position.x+=posX
+        this.camera.position.y+=posY
+
     }
 
     rotateCamera(angleX,angleY){
@@ -36,10 +38,12 @@ class Engine3D {
         }
     }
 
-    updateObjectVertexPositions(angleX,angleY){
+    updateObjectVertexPositions(angleX,angleY,posX,posY){
         this.rotateCamera(angleX,angleY)
+        this.moveCamera(posX,posY)
+        console.log("\nAngle: "+this.camera.rotation.x+"\n")
+        console.log("PositionX: "+this.camera.position.x+"\n"+"PositionY: "+this.camera.position.y+"\n______\n\n")
 
-        console.log("\nAngle: "+this.camera.rotation.x+"\n______")
         let vectorUtils = new VectorUtils()
 
         let vertex=this.mathUtils.sortVertex(this.objects[1]["vertex"])
