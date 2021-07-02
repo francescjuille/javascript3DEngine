@@ -19,7 +19,7 @@ class RenderCanvas{
         console.log(vectors)
         console.log("______________\n")
         let canvasWidth=600
- 
+
         for (let i=0;i<vectors.length;i++){
             let vectorWidth=vectors[i].distanceLeft + vectors[i].distanceRight
         
