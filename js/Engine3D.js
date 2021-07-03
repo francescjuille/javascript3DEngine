@@ -10,7 +10,7 @@ class Engine3D {
 
     objects=[
         {
-            vertex:[{name:"A",x:110,y:110,z:140},{name:"B",x:120,y:110,z:140},{name:"C",x:120,y:120,z:140},{name:"D",x:120,y:120,z:170},{name:"E",x:110,y:120,z:170},{name:"F",x:110,y:110,z:170},{name:"G",x:110,y:120,z:140},{name:"H",x:120,y:110,z:170}],
+            vertex:[{name:"A",x:110,y:110,z:140},{name:"B",x:120,y:110,z:140},{name:"C",x:120,y:115,z:140},{name:"D",x:120,y:115,z:170},{name:"E",x:110,y:115,z:170},{name:"F",x:110,y:110,z:170},{name:"G",x:110,y:115,z:140},{name:"H",x:120,y:110,z:170}],
             vertexUnion:["AB","AG","AF","BA","BC","BH","CB","CG","CD","DC","DH","DE","ED","EF","EG","FE","FA","FH","GA","GE","GC","HD","HB","HF"]
         },
 

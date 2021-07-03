@@ -30,6 +30,8 @@ class VectorUtils{
         console.log("Px "+(Px))
         */
 
+        this.checkIfVertexIsInCameraScope(camera,cameraFunction,vertex)
+
 
         return this.calculateMargins(camera,Px,Py,vertex)
 
@@ -57,6 +59,9 @@ class VectorUtils{
 
     }
 
+    checkIfVertexIsInCameraScope(camera,cameraFunction,vertex){
+        
+    }
 
 
 
