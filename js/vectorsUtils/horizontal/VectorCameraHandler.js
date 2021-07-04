@@ -47,7 +47,7 @@ class VectorCameraHandler{
         let angle=90-(camera.rotation.x+(75)) //1r part
         let signe=1
         if(angle<=0){
-            angle+=90
+            angle=180-(camera.rotation.x+(75))
             angle=90-angle
             signe=-1
         }
@@ -55,6 +55,9 @@ class VectorCameraHandler{
         let A=vertex.x
         let P0x=0
         let P0y=(vertex.y+ (signe*this.mathUtils.tan(angle)*A) )
+        //console.log("ANGLE CAMERA FUNCTION: "+angle)
+        //console.log("P0y: "+P0y)
+
         return {x:P0x,y:P0y}
     }
 

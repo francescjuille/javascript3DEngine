@@ -17,7 +17,7 @@ $(document).ready(()=>{
         let angleY=0
         let posX=0
         let posY=0
-        console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+        console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
          switch (event.keyCode) {
             case 37:
                console.log("Left key is pressed.");
