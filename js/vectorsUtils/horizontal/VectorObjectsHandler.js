@@ -53,12 +53,13 @@ class VectorObjectsHandler{
         let A=vertex.x
         let P0x=0
         let P0y=(vertex.y-(this.mathUtils.tan(angle)*A))
-        console.log(vertex.name)
+        /*console.log(vertex.name)
         console.log("ANGLE OBJECT FUNCTION: "+angle)
         console.log("vertex.y: "+vertex.y)
         console.log("this.mathUtils.tan(angle): "+this.mathUtils.tan(angle))
         console.log("P0y: "+P0y)
         console.log("____________________")
+        */
         return {x:P0x,y:P0y}
     }
 

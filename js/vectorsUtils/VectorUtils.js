@@ -23,6 +23,13 @@ class VectorUtils{
             Px=objectFunction.function.A*Py+objectFunction.function.B
         }
         else throw "Error in getVertexLateralMarginFromCameraHorizontal";
+
+        console.log("VECTORS UTILS:")
+        console.log("Px: "+Px)
+        console.log("Py: "+Py)
+        console.log("vertex.name: "+vertex.name)
+
+
         /*
         console.log("Px: "+Px)
         console.log("Py: "+Py)

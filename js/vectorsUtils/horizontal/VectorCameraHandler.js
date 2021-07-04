@@ -55,9 +55,10 @@ class VectorCameraHandler{
         let A=vertex.x
         let P0x=0
         let P0y=(vertex.y+ (signe*this.mathUtils.tan(angle)*A) )
-        //console.log("ANGLE CAMERA FUNCTION: "+angle)
-        //console.log("P0y: "+P0y)
-
+        /*console.log("ANGLE CAMERA FUNCTION: "+angle)
+        console.log("this.mathUtils.tan(angle): "+this.mathUtils.tan(angle))
+        console.log("P0y: "+P0y)
+        */
         return {x:P0x,y:P0y}
     }
 
