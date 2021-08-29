@@ -9,12 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
         <!--GAME ENGINE IMPORTS-->
         <script src="main.js"></script>
         <script src="js/Engine3D.js"></script>
         <script src="js/RenderCanvas.js"></script>
         <script src="js/MathUtils.js"></script>
+
+        <script src="js/debug/ChartDebug.js"></script>
 
 
         <script src="js/vectorsUtils/horizontal/VectorCameraHandler.js"></script>
@@ -31,20 +34,26 @@
 
             <div class="web-engine-container">
                 <div class="engine">
-                    <canvas id="gameEngine" width="600" height="600"></canvas>
+                    <canvas id="gameEngineE" width="600" height="600"></canvas>
                 </div>
+            </div>
+
+
+            <div class="debug-chart-container">
+               <canvas id="debugChart" width="400" height="400"></canvas>
             </div>
 
         </div>
 
+
+
         <style>
             .web-engine-container{
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                width:100%;
-                height:600px;
+            }
 
+            .web-container{
+                display:flex;
+                justify-content:center
             }
 
             .engine{
@@ -53,6 +62,10 @@
                 border: solid 1px gray;
             }
 
+            .debug-chart-container{
+                border: solid 1px gray;
+                margin:10px;
+            }
         </style>
     </body>
 </html>

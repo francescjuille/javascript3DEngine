@@ -3,13 +3,24 @@ $(document).ready(()=>{
     
     console.log("START EXECUTE ENGINE 3D")
     //3D ENGINE
-    let ENGINE = new Engine3D()
-    let vectors = ENGINE.updateObjectVertexPositions(0,0,0,0)
+    let ENGINE={}
+    let vectors={}
+    let chartDebug={}
+    setTimeout(()  => {
+      chartDebug= new ChartDebug()
+      chartDebug.initChart()
+      ENGINE = new Engine3D(chartDebug)
+      vectors = ENGINE.updateObjectVertexPositions(0,0,0,0)
+    },500)
     
     //RENDER
-    let canvas=new RenderCanvas()
-    canvas.initCanvas()
-    canvas.updateCanvas(vectors)
+    try{
+      let canvas=new RenderCanvas()
+      canvas.initCanvas()
+      canvas.updateCanvas(vectors)
+    }catch(e){
+      console.log(e)
+    }
 
 
     document.onkeydown = function (event) {
@@ -46,7 +57,12 @@ $(document).ready(()=>{
 
         }
         vectors=ENGINE.updateObjectVertexPositions(angleX,angleY,posX,posY)
-        canvas.updateCanvas(vectors)
+        try{
+         canvas.updateCanvas(vectors)
+        }catch(e){
+        }
+        console.log("chartDebug instance")
+        console.log(chartDebug)
 
      };
 

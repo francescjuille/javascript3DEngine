@@ -4,11 +4,28 @@ class VectorUtils{
     vectorObjectsHandler = new VectorObjectsHandler()
     vectorCameraHandler = new VectorCameraHandler()
     mathUtils= new MathUtils()
+    chartDebug = {}
+
+    constructor(chartDebug){
+        this.chartDebug=chartDebug
+    }
+
 
     getVertexLateralMarginFromCameraHorizontal(vertex,camera){
         let Px,Py
         let cameraFunction = this.vectorCameraHandler.getFunction(camera.position,camera)
         let objectFunction = this.vectorObjectsHandler.getFunction(vertex,camera)
+
+        console.log("\n\n\n\n_____________________________________")
+        console.log("vertex.name: "+vertex.name)
+        console.log("objectFunction.function.A: "+objectFunction.function.A)
+        console.log("objectFunction.function.B: "+objectFunction.function.B)
+        console.log("\n----")
+        console.log("cameraFunction.function.A: "+cameraFunction.function.A)
+        console.log("cameraFunction.function.B: "+cameraFunction.function.B)
+
+
+
 
         //compare functions
         if(objectFunction.typeOfFunction != cameraFunction.typeOfFunction)throw "Error";
@@ -24,25 +41,24 @@ class VectorUtils{
         }
         else throw "Error in getVertexLateralMarginFromCameraHorizontal";
 
+        /*
         console.log("VECTORS UTILS:")
-        console.log("Px: "+Px)
+        console.log("Px: "+Px)  
         console.log("Py: "+Py)
         console.log("vertex.name: "+vertex.name)
-
-
-        /*
-        console.log("Px: "+Px)
-        console.log("Py: "+Py)
-        console.log("vertex.x "+(vertex.x))
-        console.log("Px "+(Px))
         */
+        this.debugVectors()
 
         this.checkIfVertexIsInCameraScope(camera,cameraFunction,vertex)
 
 
         return this.calculateMargins(camera,Px,Py,vertex)
+    }
 
 
+    debugVectors(){
+        
+        this.chartDebug.updateChart()
     }
 
     calculateMargins(camera,Px,Py,vertex){

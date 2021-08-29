@@ -1,7 +1,14 @@
 class Engine3D {
 
     offsetAngle=15
-    mathUtils= new MathUtils()
+    mathUtils = new MathUtils()
+    vectorUtils = {}
+    chartDebug = {}
+
+    constructor(chartDebug){
+        this.chartDebug=chartDebug
+        this.vectorUtils = new VectorUtils(chartDebug)
+    }
 
     camera={
         position:{x:115,y:100,z:100},
@@ -44,12 +51,12 @@ class Engine3D {
         console.log("\nAngle: "+this.camera.rotation.x+"\n")
         console.log("PositionX: "+this.camera.position.x+"\n"+"PositionY: "+this.camera.position.y+"\n______\n\n")
 
-        let vectorUtils = new VectorUtils()
+        
 
         let vertex=this.mathUtils.sortVertex(this.objects[0]["vertex"])
         let margins=[]
         for(let i=0;i<vertex.length;i++){
-            let margin=vectorUtils.getVertexLateralMarginFromCameraHorizontal(vertex[i],this.camera)
+            let margin=this.vectorUtils.getVertexLateralMarginFromCameraHorizontal(vertex[i],this.camera,this.chartDebug)
             margins.push({horizontal:margin,vertical:{distanceTop:400-vertex[i].z,distanceBottom:600-(400-vertex[i].z)},vertexName:vertex[i].name})
         }
     
