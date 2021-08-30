@@ -11,15 +11,17 @@ $(document).ready(()=>{
       chartDebug.initChart()
       ENGINE = new Engine3D(chartDebug)
       vectors = ENGINE.updateObjectVertexPositions(0,0,0,0)
-    },500)
+    },200)
     
     //RENDER
+    let canvas={}
     try{
-      let canvas=new RenderCanvas()
+      canvas=new RenderCanvas()
       canvas.initCanvas()
       canvas.updateCanvas(vectors)
     }catch(e){
       console.log(e)
+      console.log("EEERRRRRORRWWW")
     }
 
 

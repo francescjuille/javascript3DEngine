@@ -25,11 +25,14 @@ class ChartDebug {
           data,
           options: {}
       };
+      setTimeout(()  => {
       console.log("LOAD CHART")
       this.debugChart = new Chart(
         this.contextCanvasChart,
           config
         );
+      },500)
+
       //this.debugChart.destroy()
     }
 
@@ -37,6 +40,8 @@ class ChartDebug {
       console.log("AAAAAAAAAAAAAAAAA")
       if(this.debugChart!=null && this.debugChart!={}){
         console.log(this.debugChart.data)
+        this.debugChart.data.datasets[0].data=[Math.floor(Math.random() * 11),2,3,4,5,6,7]
+        this.debugChart.update()
       }else{
         console.log("CHART NO LOADED")
       }
