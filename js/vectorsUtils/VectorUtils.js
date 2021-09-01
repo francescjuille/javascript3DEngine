@@ -47,7 +47,7 @@ class VectorUtils{
         console.log("Py: "+Py)
         console.log("vertex.name: "+vertex.name)
         */
-        this.debugVectors()
+        this.debugVectors(cameraFunction,camera,vertex,objectFunction)
 
         this.checkIfVertexIsInCameraScope(camera,cameraFunction,vertex)
 
@@ -56,9 +56,40 @@ class VectorUtils{
     }
 
 
-    debugVectors(){
+    debugVectors(cameraFunction,camera,vertex,vertexFunction){
+        let dataCameraRight=[]
+        let iterations=Math.floor(camera.position.x/3)
+        for(let i=0;i<camera.position.x+50;i++){
+            let y=(cameraFunction.function.A*i)+cameraFunction.function.B
+            dataCameraRight.push(y)
+        }
+
+        let dataVertexFuntion=[]
+        iterations=Math.floor(vertex.x/3)
+        for(let i=0;i<vertex.x+50;i++){
+            let y=(vertexFunction.function.A*i)+vertexFunction.function.B
+            dataVertexFuntion.push(y)
+        }
+
+
+        let dataCameraPosition=[]
+        for(let i=0;i<300;i++){
+            if(i>camera.position.x){
+                dataCameraPosition.push(camera.position.y)
+                break
+            }
+            dataCameraPosition.push(null)
+        }
         
-        this.chartDebug.updateChart()
+        let dataObjectVertexPosition=[]
+        for(let i=0;i<300;i++){
+            if(i>vertex.x){
+                dataObjectVertexPosition.push(vertex.y)
+                break
+            }
+            dataObjectVertexPosition.push(null)
+        }
+        this.chartDebug.updateChart(dataCameraRight,dataCameraPosition,dataObjectVertexPosition,dataVertexFuntion)
     }
 
     calculateMargins(camera,Px,Py,vertex){
